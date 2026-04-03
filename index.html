@@ -556,7 +556,7 @@
       <button class="chip" onclick="setQuery('SELECT * FROM cuentas LIMIT 10;')">SELECT cuentas</button>
       <button class="chip" onclick="setQuery('SELECT * FROM transacciones LIMIT 10;')">SELECT transacciones</button>
       <button class="chip" onclick="setQuery('SELECT * FROM categorias;')">SELECT categorias</button>
-      <button class="chip" onclick="setQuery(`SELECT cl.nombre, cu.tipo, cu.saldo\nFROM cuentas cu\nJOIN clientes cl ON cu.cliente_id = cl.id\nORDEN BY cu.saldo DESC;`)">Saldos por cliente</button>
+      <button class="chip" onclick="setQuery(`SELECT cl.nombre, cu.tipo, cu.saldo\nFROM cuentas cu\nJOIN clientes cl ON cu.cliente_id = cl.id\nORDER BY cu.saldo DESC;`)">Saldos por cliente</button>
       <button class="chip" onclick="setQuery(`SELECT cl.nombre, COUNT(t.id) AS txns,\n  SUM(t.monto) AS total\nFROM transacciones t\nJOIN cuentas cu ON t.cuenta_id = cu.id\nJOIN clientes cl ON cu.cliente_id = cl.id\nGROUP BY cl.nombre\nORDER BY total DESC;`)">Resumen financiero</button>
     </div>
   </aside>
