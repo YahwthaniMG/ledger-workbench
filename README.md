@@ -37,7 +37,7 @@ Si despliegas tu propia instancia del API, cambia este valor por tu URL de Rende
 ## Instalación local
 
 ```bash
-git clone https://github.com/[tu-usuario]/ledger-workbench
+git clone https://github.com/YahwthaniMG/ledger-workbench
 cd ledger-workbench
 ```
 
