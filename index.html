@@ -392,10 +392,18 @@
       return;
     }
     list.innerHTML = h.map((q, i) => `
-      <div class="history-item" onclick="setQuery(${JSON.stringify(q)})" title="${q}">
+      <div class="history-item" data-index="${i}" title="${q.replace(/"/g, '&quot;')}">
         <span class="history-num">${i + 1}</span>
         <span style="overflow:hidden;text-overflow:ellipsis">${q.replace(/\s+/g, ' ').substring(0, 40)}</span>
       </div>`).join('');
+
+    list.querySelectorAll('.history-item').forEach(el => {
+      el.addEventListener('click', () => {
+        const idx = parseInt(el.dataset.index);
+        const h = getHistory();
+        if (h[idx]) setQuery(h[idx]);
+      });
+    });
   }
 
   // ── Line numbers ──
